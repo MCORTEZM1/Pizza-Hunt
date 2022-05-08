@@ -55,7 +55,7 @@ const handlePizzaSubmit = event => {
   fetch('/api/pizzas', {
     method: 'POST',
     headers: {
-      Accept: 'appliation/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(formData)
@@ -67,6 +67,7 @@ const handlePizzaSubmit = event => {
   })
   .catch(err => {
     console.log(err);
+    saveRecord(formData);
   });
 
 };
