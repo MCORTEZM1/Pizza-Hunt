@@ -37,6 +37,7 @@ const handleAddTopping = event => {
 };
 
 const handlePizzaSubmit = event => {
+  console.log('clicked')
   event.preventDefault();
 
   const pizzaName = $pizzaForm.querySelector('#pizza-name').value;
@@ -60,7 +61,10 @@ const handlePizzaSubmit = event => {
     },
     body: JSON.stringify(formData)
   })
-  .then(response => response.json())
+  .then(response => {
+    console.log(response);
+    response.json()
+  })
   .then(postResponse => {
     alert('Pizza created successfully');
     console.log(postResponse);
