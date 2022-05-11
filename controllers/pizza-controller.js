@@ -52,7 +52,8 @@ const pizzaController = {
 
     // update pizza by id 
     updatePizza({ params, body}, res) {
-        Pizza.findOneAndUpdate({ _id: params.id }, body, { new: true})
+        Pizza.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true})
+            // Needs runValidators so it knows to validate new information! Since validate only runs on create.
             // .findOneAndUpdate() finds a single document to update, updates, then returns the document.
             // {new: true} instructs Mongoose to return the new version of the document.
             // .updateOne() and .updateMany() do not return the document

@@ -4,10 +4,14 @@ const dateFormat = require('../utils/dateFormat');
 const PizzaSchema = new Schema(
     {
         pizzaName: {
-            type: String
+            type: String,
+            required: 'You need to provide a pizza name', //Mongoose only executes the validators automatically when we actually create new data, not updates!
+            trim: true, // removes white spaces from before and after the string. 
         },
         createdBy: {
-            type: String
+            type: String,
+            required: true,
+            trim: true,
         },
         createdAt: {
             type: Date, 
@@ -16,6 +20,9 @@ const PizzaSchema = new Schema(
         },
         size: {
             type: String, 
+            default: 'Large',
+            required: true,
+            enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
             default: 'Large'
         },
         toppings: [], // can also {type: Array}
