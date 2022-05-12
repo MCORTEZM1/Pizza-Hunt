@@ -1,4 +1,3 @@
-const req = require('express/lib/request');
 const { Pizza } = require('../models');
 
 const pizzaController = {
